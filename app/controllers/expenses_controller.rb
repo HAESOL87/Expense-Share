@@ -26,6 +26,8 @@ class ExpensesController < ApplicationController
   def create
     @expense = Expense.new(expense_params)
 
+    calculate
+
     respond_to do |format|
       if @expense.save
         format.html { redirect_to expenses_path, notice: 'Expense was successfully created.' }
@@ -62,16 +64,24 @@ class ExpensesController < ApplicationController
   end
 
   def toggle_completed
-  @expense.cleared = !@expense.cleared
-  respond_to do |format|
-    if @expense.save
-      format.html { redirect_to expenses_path }
-      format.json { render :show, status: :ok, location: @expense }
-    else
-      # show some error message
+   @expense.cleared = !@expense.cleared
+    respond_to do |format|
+      if @expense.save
+        format.html { redirect_to expenses_path }
+        format.json { render :show, status: :ok, location: @expense }
+      else
+        # show some error message
+      end
     end
   end
-end
+
+  def calculate
+    @expense.responsible_amount = (@expense.total_amount / @expense.total_person)
+
+    @expense.amount_with_who = 'U really dont know'
+
+    return @expense.responsible_amount
+  end
 
   private
     # Use callbacks to share common setup or constraints between actions.
