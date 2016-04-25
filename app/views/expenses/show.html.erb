@@ -1,0 +1,44 @@
+<div class="page-header">
+  <%= link_to expenses_path, class: 'btn btn-default' do %>
+    <span class="glyphicon glyphicon-list-alt"></span>
+    Back
+  <% end %>
+  <%= link_to edit_expense_path(@expense), class: 'btn btn-primary' do %>
+    <span class="glyphicon glyphicon-pencil"></span>
+    Edit
+  <% end %>
+  <h1>Show expense</h1>
+</div>
+
+<dl class="dl-horizontal">
+  <dt>Title:</dt>
+  <dd><%= @expense.title %></dd>
+
+  <dt>Total amount:</dt>
+  <dd><%= @expense.total_amount %></dd>
+
+  <dt>Total person:</dt>
+  <dd><%= @expense.total_person %></dd>
+
+  <dt>Responsible amount:</dt>
+  <dd><%= @expense.responsible_amount %></dd>
+
+  <dt>Amount payed:</dt>
+  <dd><%= @expense.amount_payed %></dd>
+
+  <dt>Amount owed:</dt>
+  <dd><%= @expense.amount_owed %></dd>
+
+  <dt>Amount with who:</dt>
+  <dd><%= @expense.amount_with_who %></dd>
+
+  <dt>Cleared:</dt>
+  <dd><%= @expense.cleared %></dd>
+
+  <dt>Comment:</dt>
+  <dd><%= @expense.comment %></dd>
+
+  <dt>Created:</dt>
+  <dd><%= @expense.created_at %></dd>
+
+</dl>
