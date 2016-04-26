@@ -1,10 +1,10 @@
 class ExpensesController < ApplicationController
-  before_action :set_expense, only: [:show, :edit, :update, :destroy, :toggle_completed]
+  before_action :set_expense, :signed_in_user only: [:show, :edit, :update, :destroy, :toggle_completed]
 
   # GET /expenses
   # GET /expenses.json
   def index
-    @expenses = Expense.order(created_at: :desc)
+    @expenses = current.user.Expense.order(created_at: :desc)
   end
 
   # GET /expenses/1
@@ -25,6 +25,7 @@ class ExpensesController < ApplicationController
   # POST /expenses.json
   def create
     @expense = Expense.new(expense_params)
+    @expense.user = current_user
 
     calculate
 
