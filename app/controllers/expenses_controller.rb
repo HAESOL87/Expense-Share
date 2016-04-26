@@ -78,8 +78,10 @@ class ExpensesController < ApplicationController
 
   def calculate
     @expense.responsible_amount = (@expense.total_amount / @expense.total_person)
+    @expense.amount_with_who = '??'
 
-    @expense.amount_with_who = 'U really dont know'
+
+
 
     return @expense.responsible_amount
   end

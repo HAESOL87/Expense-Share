@@ -2,8 +2,10 @@
   <%= link_to new_expense_path, class: 'btn btn-primary' do %>
     <span class="glyphicon glyphicon-plus"></span>
     New Expense
-  <% end %>
+    <% end %>
+
   <h1>Listing Expenses</h1>
+
 </div>
 
 <div class="table-responsive">
@@ -14,9 +16,6 @@
             <th>Total amount</th>
             <th>Total person</th>
             <th>Responsible amount</th>
-            <th>Amount payed</th>
-            <th>Amount owed</th>
-            <th>Amount with who</th>
             <th>Cleared</th>
             <th>Comment</th>
             <th>Show</th>
@@ -31,9 +30,6 @@
             <td><%= expense.total_amount %></td>
             <td><%= expense.total_person %></td>
             <td><%= expense.responsible_amount %></td>
-            <td><%= expense.amount_payed %></td>
-            <td><%= expense.amount_owed %></td>
-            <td><%= expense.amount_with_who %></td>
             <td>
                 <%= link_to("/expenses/#{expense.id}/toggle_completed") do %>
                 <% if expense.cleared %>
@@ -50,4 +46,6 @@
       <% end %>
     </tbody>
   </table>
+
+
 </div>
