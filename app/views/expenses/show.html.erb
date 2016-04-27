@@ -20,7 +20,7 @@
   <dt>Total person:</dt>
   <dd><%= @expense.total_person %></dd>
 
-  <dt>Responsible amount:</dt>
+  <dt>Amount per person:</dt>
   <dd><%= @expense.responsible_amount %></dd>
 
   <dt>Comment:</dt>
@@ -41,15 +41,16 @@
     </thead>
 
     <tbody>
-
+            <% counter = 1 %>
             <% for i in 1..@expense.total_person %>
             <tr>
-            <td><%= @expense.total_person %></td>
+            <td><%=   %></td>
             <td><%= @expense.responsible_amount %></td>
             <td><%= @expense.amount_payed %></td>
             <td><%= @expense.amount_owed %></td>
             <td><%= @expense.amount_with_who %></td>
             </tr>
+            <% counter += 1 %>
             <% end %>
 
 

@@ -36,7 +36,7 @@ module ExpenseCalc
       g.template_engine :erb
     end
 
-    config.serve_static_assets = true
+    config.serve_static_files = true
     config.active_record.raise_in_transactional_callbacks = true
   end
 end

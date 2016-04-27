@@ -80,9 +80,6 @@ class ExpensesController < ApplicationController
     @expense.responsible_amount = (@expense.total_amount / @expense.total_person)
     @expense.amount_with_who = '??'
 
-
-
-
     return @expense.responsible_amount
   end
 

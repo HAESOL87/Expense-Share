@@ -10,4 +10,16 @@
   <h1>Editing expense</h1>
 </div>
 
+<dl class="dl-horizontal">
+  <dt>Title:</dt>
+  <dd><%= @expense.title %></dd>
+
+  <dt>Total amount:</dt>
+  <dd><%= @expense.total_amount %></dd>
+
+  <dt>Comment:</dt>
+  <dd><%= @expense.comment %></dd>
+
+</dl>
+
 <%= render 'form' %>
