@@ -1,7 +1,7 @@
 class Expense < ActiveRecord::Base
   belongs_to :user
 
-  validates :title, :total_amount, :total_person, presence: true
+  validates :title, :total_amount, presence: true
 
   before_save :default_values
 

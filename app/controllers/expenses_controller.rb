@@ -27,7 +27,7 @@ class ExpensesController < ApplicationController
     @expense = Expense.new(expense_params)
     @expense.user = current_user
 
-    calculate
+    # calculate
 
     respond_to do |format|
       if @expense.save
@@ -77,7 +77,7 @@ class ExpensesController < ApplicationController
   end
 
   def calculate
-    @expense.responsible_amount = (@expense.total_amount / @expense.total_person)
+    # @expense.responsible_amount = (@expense.total_amount / @expense.total_person)
     @expense.amount_with_who = '??'
 
     return @expense.responsible_amount
