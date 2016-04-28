@@ -27,6 +27,9 @@ class ExpensesController < ApplicationController
     @expense = Expense.new(expense_params)
     @expense.user = current_user
 
+    @expense.participant.push(params[:expense][:amount_owed])
+
+    puts "!!!! #{@expense.participant}"
     # calculate
 
     respond_to do |format|

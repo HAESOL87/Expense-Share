@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160427205135) do
+ActiveRecord::Schema.define(version: 20160428012519) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -30,6 +30,16 @@ ActiveRecord::Schema.define(version: 20160427205135) do
     t.datetime "updated_at",                                null: false
     t.integer  "user_id",                                   null: false
     t.string   "participant",                  default: [],              array: true
+    t.string   "p1"
+    t.string   "p2"
+    t.string   "p3"
+    t.string   "p4"
+    t.string   "p5"
+    t.money    "a1",                 scale: 2
+    t.money    "a2",                 scale: 2
+    t.money    "a3",                 scale: 2
+    t.money    "a4",                 scale: 2
+    t.money    "a5",                 scale: 2
   end
 
   add_index "expenses", ["user_id"], name: "index_expenses_on_user_id", using: :btree
