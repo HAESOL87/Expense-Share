@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160428012519) do
+ActiveRecord::Schema.define(version: 20160428051919) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,7 +21,6 @@ ActiveRecord::Schema.define(version: 20160428012519) do
     t.money    "total_amount",       scale: 2,              null: false
     t.integer  "total_person",                              null: false
     t.money    "responsible_amount", scale: 2
-    t.money    "amount_payed",       scale: 2
     t.money    "amount_owed",        scale: 2
     t.string   "amount_with_who"
     t.boolean  "cleared"
@@ -40,6 +39,8 @@ ActiveRecord::Schema.define(version: 20160428012519) do
     t.money    "a3",                 scale: 2
     t.money    "a4",                 scale: 2
     t.money    "a5",                 scale: 2
+    t.money    "amount_payed",                 default: [],              array: true
+    t.money    "amount_net",                   default: [],              array: true
   end
 
   add_index "expenses", ["user_id"], name: "index_expenses_on_user_id", using: :btree

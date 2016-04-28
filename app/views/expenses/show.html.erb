@@ -32,7 +32,7 @@
   <table class="table table-striped table-bordered table-hover">
     <thead>
       <tr>
-            <th>Person ID</th>
+            <th>Person Name</th>
             <th>Responsible amount</th>
             <th>Amount you payed</th>
             <th>Amount owed</th>
@@ -41,16 +41,21 @@
     </thead>
 
     <tbody>
-            <% counter = 1 %>
+    <% counter = 0 %>
+    <% counter2 = 1 %>
+    <% counter3 = 0 %>
             <% for i in 1..@expense.total_person %>
+
             <tr>
-            <td><%=   %></td>
+            <td><%= @expense.participant[counter]%></td>
             <td><%= @expense.responsible_amount %></td>
-            <td><%= @expense.amount_payed %></td>
-            <td><%= @expense.amount_owed %></td>
+            <td><%= @expense.participant[counter2] %></td>
+            <td><%= @expense.amount_net[counter3] %></td>
             <td><%= @expense.amount_with_who %></td>
             </tr>
-            <% counter += 1 %>
+            <% counter += 2 %>
+            <% counter2 += 2 %>
+            <% counter3 += 1 %>
             <% end %>
     </tbody>
   </table>

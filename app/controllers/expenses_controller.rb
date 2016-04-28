@@ -27,10 +27,8 @@ class ExpensesController < ApplicationController
     @expense = Expense.new(expense_params)
     @expense.user = current_user
 
-    @expense.participant.push(params[:expense][:amount_owed])
-
     puts "!!!! #{@expense.participant}"
-    # calculate
+
 
     respond_to do |format|
       if @expense.save
@@ -46,6 +44,7 @@ class ExpensesController < ApplicationController
   # PATCH/PUT /expenses/1
   # PATCH/PUT /expenses/1.json
   def update
+    calculate
     respond_to do |format|
       if @expense.update(expense_params)
         format.html { redirect_to expenses_path, notice: 'Expense was successfully updated.' }
@@ -80,7 +79,35 @@ class ExpensesController < ApplicationController
   end
 
   def calculate
-    # @expense.responsible_amount = (@expense.total_amount / @expense.total_person)
+    @expense.participant = []
+puts params[:expense]
+
+
+params[:expense].values.each do |v|
+  @expense.participant.push(v)
+end
+
+    # for i in 1..@expense.total_person
+    #   x = params[:expense]["p1"]
+    #   puts params[:expense]
+    #   @expense.participant.push(params[:expense]["p1"])
+    # end
+
+    # puts "#{@expense.participant}"
+
+    @expense.responsible_amount = (@expense.total_amount / @expense.total_person)
+
+puts @expense.participant
+
+    for i in 0..@expense.participant.length
+      if i %2 != 0 then
+        puts @expense.participant[i]
+      @expense.amount_net.push(@expense.responsible_amount - @expense.participant[i].to_i)
+end
+
+end
+
+
     @expense.amount_with_who = '??'
 
     return @expense.responsible_amount
@@ -94,6 +121,6 @@ class ExpensesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def expense_params
-      params.require(:expense).permit(:title, :total_amount, :total_person, :responsible_amount, :amount_payed, :amount_owed, :amount_with_who, :cleared, :comment)
+      params.require(:expense).permit(:title, :total_amount, :total_person, :responsible_amount, :amount_payed, :amount_owed, :amount_with_who, :cleared, :comment, :p1, :p2, :p3, :p4, :p5, :a1, :a2, :a3, :a4, :a5)
     end
 end
