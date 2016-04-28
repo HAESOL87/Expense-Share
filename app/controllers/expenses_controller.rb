@@ -27,12 +27,13 @@ class ExpensesController < ApplicationController
     @expense = Expense.new(expense_params)
     @expense.user = current_user
 
-    puts "!!!! #{@expense.participant}"
+@expense.responsible_amount = (@expense.total_amount / @expense.total_person)
+
 
 
     respond_to do |format|
       if @expense.save
-        format.html { redirect_to expenses_path, notice: 'Expense was successfully created.' }
+        format.html { redirect_to edit_expense_path(@expense), notice: 'Expense was successfully created.' }
         format.json { render :show, status: :created, location: @expense }
       else
         format.html { render :new }

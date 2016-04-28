@@ -15,7 +15,6 @@
             <th>Title</th>
             <th>Total amount</th>
             <th>Total person</th>
-            <th>Responsible amount</th>
             <th>Cleared</th>
             <th>Comment</th>
             <th>Show</th>
@@ -29,7 +28,6 @@
             <td><%= expense.title %></td>
             <td><%= expense.total_amount %></td>
             <td><%= expense.total_person %></td>
-            <td><%= expense.responsible_amount %></td>
             <td>
                 <%= link_to("/expenses/#{expense.id}/toggle_completed") do %>
                 <% if expense.cleared %>
@@ -40,9 +38,7 @@
             <% end %>
             </td>
           <!--   <td><%= expense.comment %></td> -->
-          <td><button class="btn btn-default" data-toggle="modal" data-target="#myModal">
-    Add People
-</button></td>
+          <td><%= expense.comment %></td>
             <td><%= link_to 'Show', expense %></td>
             <td><%= link_to 'Edit', edit_expense_path(expense) %></td>
 
