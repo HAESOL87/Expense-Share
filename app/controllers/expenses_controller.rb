@@ -27,7 +27,7 @@ class ExpensesController < ApplicationController
     @expense = Expense.new(expense_params)
     @expense.user = current_user
 
-@expense.responsible_amount = (@expense.total_amount / @expense.total_person)
+    @expense.responsible_amount = (@expense.total_amount / @expense.total_person)
 
 
 
@@ -81,12 +81,35 @@ class ExpensesController < ApplicationController
 
   def calculate
     @expense.participant = []
-puts params[:expense]
+
+    puts "!!!!#{params[:expense]}"
+
+    puts "!!!!#{params[:expense].length}"
+
+    puts "!!!!#{params[:expense].values.first}"
+
+    @newValues = []
+    @bigParticipant = []
+
+    params[:expense].values.each do |k|
+      @newValues.push(k)
+    end
 
 
-params[:expense].values.each do |v|
-  @expense.participant.push(v)
-end
+    for i in 1..params[:expense].length
+      @expense.participant.push(@newValues.first)
+      @newValues.shift
+
+        if (i % 2 == 0)
+          @p_amount2 = @expense.responsible_amount - @expense.participant[1].to_f
+          @expense.participant.push(@p_amount2.to_s)
+          @bigParticipant.push(@expense.participant)
+          puts "1212#{@expense.participant}"
+          puts "1313#{@bigParticipant}"
+          @expense.participant = []
+        end
+
+    end
 
     # for i in 1..@expense.total_person
     #   x = params[:expense]["p1"]
@@ -96,23 +119,36 @@ end
 
     # puts "#{@expense.participant}"
 
-    @expense.responsible_amount = (@expense.total_amount / @expense.total_person)
 
-puts @expense.participant
+#     puts @expense.participant
 
-    for i in 0..@expense.participant.length
-      if i %2 != 0 then
-        puts @expense.participant[i]
-      @expense.amount_net.push(@expense.responsible_amount - @expense.participant[i].to_i)
-end
+#     for i in 0..@expense.participant.length
+#       if i %2 != 0 then
+#         puts @expense.participant[i]
+#         @expense.amount_net.push(@expense.responsible_amount - @expense.participant[i].to_i)
+#       end
+#     end
 
-end
-
+# puts "!!!!!#{@expense.amount_net}"
 
     @expense.amount_with_who = '??'
 
     return @expense.responsible_amount
+
+
+
+
+
+
   end
+
+
+
+
+
+
+
+
 
   private
     # Use callbacks to share common setup or constraints between actions.
