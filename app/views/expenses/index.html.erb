@@ -4,7 +4,7 @@
     New Expense
     <% end %>
 
-  <h1>Listing Expenses</h1>
+  <h1>Expenses</h1>
 
 </div>
 
@@ -16,12 +16,12 @@
     <thead>
       <tr>
             <th>Title</th>
-            <th>Total amount</th>
-            <th>Total person</th>
-            <th>Cleared</th>
+            <th>Total Amount</th>
+            <th>Total Person</th>
+            <th>Cleared ?</th>
             <th>Comment</th>
             <th>Show</th>
-            <th>Edit</th>
+        <!--     <th>Edit</th> -->
             <th>Delete</th>
       </tr>
     </thead>
@@ -41,16 +41,9 @@
             <% end %>
             </td>
         <td><%= expense.comment %></td>
-
-
-
  <td><%= link_to 'Show', expense %></td>
-            <td><%= link_to 'Edit', edit_expense_path(expense) %></td>
+            <!-- <td><%= link_to 'Edit', edit_expense_path(expense) %></td> -->
 
-<!--           <button type="button" data-id="3" class="btn btn-default editButton">Edit</button></td>  -->
-<!-- <td><button class="btn btn-default" data-toggle="modal" data-target="#myModal">
-    Add People
-</button></td> -->
         <td><%= link_to 'Delete', expense, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       <% end %>
     </tbody>
