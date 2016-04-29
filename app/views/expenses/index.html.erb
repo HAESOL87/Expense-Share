@@ -18,7 +18,7 @@
             <th>Title</th>
             <th>Total Amount</th>
             <th>Total Person</th>
-            <th>Cleared ?</th>
+            <th>Cleared</th>
             <th>Comment</th>
             <th>Show</th>
         <!--     <th>Edit</th> -->
@@ -29,7 +29,7 @@
     <tbody>
       <%= content_tag_for(:tr, @expenses) do |expense| %>
             <td><%= expense.title %></td>
-            <td><%= expense.total_amount %></td>
+            <td><%= number_to_currency(expense.total_amount) %></td>
             <td><%= expense.total_person %></td>
             <td>
                 <%= link_to("/expenses/#{expense.id}/toggle_completed") do %>
@@ -40,11 +40,10 @@
                 <% end %>
             <% end %>
             </td>
-        <td><%= expense.comment %></td>
- <td><%= link_to 'Show', expense %></td>
+            <td><%= expense.comment %></td>
+            <td><%= link_to 'Show', expense %></td>
             <!-- <td><%= link_to 'Edit', edit_expense_path(expense) %></td> -->
-
-        <td><%= link_to 'Delete', expense, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            <td><%= link_to 'Delete', expense, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       <% end %>
     </tbody>
   </table>
