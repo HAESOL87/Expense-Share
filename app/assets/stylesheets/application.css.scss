@@ -3,12 +3,13 @@
 @import "bootstrap-custom-variables.scss";
 @import "bootstrap-sprockets.scss";
 @import "bootstrap.scss";
+@import "superhero-variables.scss";
+@import "superhero.scss";
 
 
 body {
   padding-top: $navbar-height + 10px;
   background-color: #C0E2E6
-
 }
 
 .navbar-brand {
@@ -31,6 +32,14 @@ h4 {
 
 .jumbotron {
 opacity: 0.8
+}
+
+.jumbotron h1 {
+font-size: 90px
+}
+
+.jumbotron h4 {
+font-size: 25px
 }
 
 .navbar-default {
