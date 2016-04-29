@@ -4,16 +4,22 @@
 @import "bootstrap-sprockets.scss";
 @import "bootstrap.scss";
 
+
 body {
   padding-top: $navbar-height + 10px;
   background-color: #C0E2E6
+
 }
 
 .navbar-brand {
   font-color: white
 }
 
-.table1 {
+.table {
+  text-align: center
+}
+
+th {
   text-align: center
 }
 
