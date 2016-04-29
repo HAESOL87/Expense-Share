@@ -89,7 +89,7 @@ class ExpensesController < ApplicationController
     puts "!!!!#{params[:expense].values.first}"
 
     @newValues = []
-    @bigParticipant = []
+    @expense.bigParticipant = []
 
     params[:expense].values.each do |k|
       @newValues.push(k)
@@ -103,11 +103,15 @@ class ExpensesController < ApplicationController
         if (i % 2 == 0)
           @p_amount2 = @expense.responsible_amount - @expense.participant[1].to_f
           @expense.participant.push(@p_amount2.to_s)
-          @bigParticipant.push(@expense.participant)
+          @expense.bigParticipant.push(@expense.participant)
           puts "1212#{@expense.participant}"
-          puts "1313#{@bigParticipant}"
+          puts "1313#{@expense.bigParticipant}"
           @expense.participant = []
         end
+
+
+
+
 
     end
 

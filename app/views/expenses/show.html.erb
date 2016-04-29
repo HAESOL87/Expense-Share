@@ -3,10 +3,6 @@
     <span class="glyphicon glyphicon-list-alt"></span>
     Back
   <% end %>
-  <%= link_to edit_expense_path(@expense), class: 'btn btn-primary' do %>
-    <span class="glyphicon glyphicon-pencil"></span>
-    Edit
-  <% end %>
   <h1>Show expense</h1>
 </div>
 
@@ -20,9 +16,6 @@
   <dt>Total person:</dt>
   <dd><%= @expense.total_person %></dd>
 
-  <dt>Amount per person:</dt>
-  <dd><%= @expense.responsible_amount %></dd>
-
   <dt>Comment:</dt>
   <dd><%= @expense.comment %></dd>
 
@@ -35,27 +28,29 @@
             <th>Person Name</th>
             <th>Responsible amount</th>
             <th>Amount you payed</th>
-            <th>Amount owed</th>
-            <th>Amount with who</th>
+            <th>Net Amount</th>
       </tr>
     </thead>
 
     <tbody>
-    <% counter = 0 %>
-    <% counter2 = 1 %>
-    <% counter3 = 0 %>
-            <% for i in 1..@expense.total_person %>
+            <% for i in 0..(@expense.bigParticipant.length-1) %>
+
+<% if @expense.bigParticipant[i][2].to_f < 0  %>
+<% @string_output = "Pay $#{-1 * @expense.bigParticipant[i][2].to_f.round(2)}" %>
+<% elsif @expense.bigParticipant[i][2].to_f > 0  %>
+<% @string_output = "Receive $#{@expense.bigParticipant[i][2].to_f}" %>
+<% else %>
+<% @string_output = "Break Even" %>
+<% end %>
 
             <tr>
-            <td><%= @expense.participant[counter]%></td>
+            <td><%= @expense.bigParticipant[i][0]%></td>
             <td><%= @expense.responsible_amount %></td>
-            <td><%= @expense.participant[counter2] %></td>
-            <td><%= @expense.amount_net[counter3] %></td>
-            <td><%= @expense.amount_with_who %></td>
+
+            <td><%=@expense.bigParticipant[i][1]%></td>
+            <td><%= @string_output%></td>
             </tr>
-            <% counter += 2 %>
-            <% counter2 += 2 %>
-            <% counter3 += 1 %>
             <% end %>
+
     </tbody>
   </table>

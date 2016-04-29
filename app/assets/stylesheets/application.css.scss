@@ -6,6 +6,29 @@
 
 body {
   padding-top: $navbar-height + 10px;
+  background-color: #C0E2E6
+}
+
+.navbar-brand {
+  font-color: white
+}
+
+.table1 {
+  text-align: center
+}
+
+
+h4 {
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+
+.jumbotron {
+opacity: 0.8
+}
+
+.navbar-default {
+background-color: #61B8C1
 }
 
 .page-header {
@@ -33,16 +56,4 @@ main {
   th, td {
     text-align:center
   }
-}
-
-.modal-body .form-horizontal .col-sm-2,
-.modal-body .form-horizontal .col-sm-10 {
-    width: 100%
-}
-
-.modal-body .form-horizontal .control-label {
-    text-align: left;
-}
-.modal-body .form-horizontal .col-sm-offset-2 {
-    margin-left: 15px;
 }
