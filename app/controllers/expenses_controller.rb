@@ -48,7 +48,7 @@ class ExpensesController < ApplicationController
     calculate
     respond_to do |format|
       if @expense.update(expense_params)
-        format.html { redirect_to expenses_path, notice: 'Expense was successfully updated.' }
+        format.html { redirect_to expenses_path, notice: 'Participants was successfully added.' }
         format.json { render :show, status: :ok, location: @expense }
       else
         format.html { render :edit }

@@ -11,7 +11,7 @@
   <dd><%= @expense.title %></dd>
 
   <dt>Total amount:</dt>
-  <dd><%= @expense.total_amount %></dd>
+  <dd><%= number_to_currency(@expense.total_amount) %></dd>
 
   <dt>Total person</dt>
   <dd><%= @expense.total_person %></dd>

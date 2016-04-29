@@ -9,7 +9,7 @@
 .navbar {
   @include box-shadow(none);
   border: none;
-  font-size: 12px;
+  font-size: 16px;
 }
 
 .navbar-default {
@@ -105,10 +105,10 @@ body {
 
 table,
 .table {
-  font-size: 12px;
+  font-size: 13px;
 
   a:not(.btn) {
-    color: #fff;
+    color: #337ab7;
     text-decoration: underline;
   }
 
@@ -137,7 +137,7 @@ label,
 .radio label,
 .checkbox label,
 .help-block {
-  font-size: 12px;
+  font-size: 13px;
   font-weight: 300;
 }
 
@@ -229,7 +229,7 @@ label,
 }
 
 .alert {
-  color: #fff;
+  color: black;
 
   a,
   .alert-link {
