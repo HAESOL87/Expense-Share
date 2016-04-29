@@ -17,6 +17,10 @@ Demo: <https://morning-taiga-84371.herokuapp.com/>
 Wireframe: 
 ![Alt Image Text](./WireFrame for Expense Share.png "Screenshot")
 
+Erb:
+![Alt Image Text](./ERB.png "Screenshot")
+
+
 [Trello Website](https://trello.com/b/nfEm0AEK/project-expense-share)
 
 ## **Tools Used:**
@@ -37,9 +41,12 @@ Trello, Wireframe, SublimeText3, Google,
 ## **Future Upgrade Plan:**
 
 * Implement algorithm that assigns who to pay.
+* Validations on user input value.
+* Additional Models for more functionality.
 
 ## **Lesson Learned:**  
  
  
 - Plan ahead of details what you really want to create. 
 - Start "Simple". Try to set small goals first and move on to the advance features.
+- Passing variables through your routes.

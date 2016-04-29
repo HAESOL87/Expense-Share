@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160428051919) do
+ActiveRecord::Schema.define(version: 20160428234750) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -41,22 +41,10 @@ ActiveRecord::Schema.define(version: 20160428051919) do
     t.money    "a5",                 scale: 2
     t.money    "amount_payed",                 default: [],              array: true
     t.money    "amount_net",                   default: [],              array: true
+    t.string   "bigParticipant",               default: [],              array: true
   end
 
   add_index "expenses", ["user_id"], name: "index_expenses_on_user_id", using: :btree
-
-  create_table "participants", force: :cascade do |t|
-    t.string   "name",                  null: false
-    t.money    "paid_amount", scale: 2, null: false
-    t.money    "net_amount",  scale: 2
-    t.money    "owed_amount", scale: 2
-    t.boolean  "required"
-    t.integer  "expense_id"
-    t.datetime "created_at",            null: false
-    t.datetime "updated_at",            null: false
-  end
-
-  add_index "participants", ["expense_id"], name: "index_participants_on_expense_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "first_name",      null: false
@@ -71,5 +59,4 @@ ActiveRecord::Schema.define(version: 20160428051919) do
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
 
   add_foreign_key "expenses", "users"
-  add_foreign_key "participants", "expenses"
 end

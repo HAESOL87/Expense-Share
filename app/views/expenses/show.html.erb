@@ -37,9 +37,9 @@
     <tbody>
      <% for i in 0..(@expense.bigParticipant.length-1) %>
         <% if @expense.bigParticipant[i][2].to_f < 0  %>
-          <% @string_output = "Receive $#{-1 * @expense.bigParticipant[i][2].to_f.round(2)}" %>
+          <% @string_output = "Receive #{number_to_currency(-1 * @expense.bigParticipant[i][2].to_f)}" %>
         <% elsif @expense.bigParticipant[i][2].to_f > 0  %>
-          <% @string_output = "Pay $#{@expense.bigParticipant[i][2].to_f}" %>
+          <% @string_output = "Pay #{number_to_currency(@expense.bigParticipant[i][2].to_f)}" %>
         <% else %>
           <% @string_output = "Break Even" %>
         <% end %>
