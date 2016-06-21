@@ -5,7 +5,7 @@
 
 Create a Expense Sharing application using Ruby on Rails. 
 
-Demo: <https://morning-taiga-84371.herokuapp.com/>
+[Live Demo](https://expense-share.herokuapp.com/)
 	
 ## **Key Goals:**
 
